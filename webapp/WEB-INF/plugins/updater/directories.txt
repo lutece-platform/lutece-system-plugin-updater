@@ -1,0 +1,7 @@
+The current directory may have 3 folders :
+- backup to store current plugin version before upgrade
+- downloaded to store downloaded plugins releases or upgrades
+- deploy to store all data ready to be installed
+
+For more information please check the plugin documentation.
+ 

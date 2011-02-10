@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE digester-rules PUBLIC
+"-//Jakarta Apache //DTD digester-rules XML V1.0//EN"
+"digester-rules.dtd">
+<digester-rules>
+    <pattern value="catalogs">
+        <pattern value="catalog">
+            <object-create-rule classname="fr.paris.lutece.plugins.updater.service.catalog.Catalog" />
+            <set-properties-rule />
+            <bean-property-setter-rule pattern="name" propertyname="name" />
+            <bean-property-setter-rule pattern="url" propertyname="url" />
+            <set-next-rule methodname="addCatalog" />
+        </pattern>
+    </pattern>
+</digester-rules>

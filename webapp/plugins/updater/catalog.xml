@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<catalog>
+    <plugins>
+        <plugin>
+            <name>digglike</name>
+            <description>Vote et suggestion</description>
+            <version>2.0.3</version>
+            <author>Mairie de Paris</author>
+            <url-homepage>http://fr.lutece.paris.fr/fr/jsp/site/Portal.jsp?document_id=505&amp;portlet_id=140</url-homepage>
+            <url-download>http://localhost:8080/lutece/plugins/updater/digglike-2.0.3.zip</url-download>
+            <upgrades>
+                <upgrade>
+                    <version-from>2.0.2</version-from>
+                    <critical>0</critical>
+                    <url-upgrade-download>http://localhost:8080/lutece/plugins/updater/digglike-upgrade-2.0.2-2.0.3.zip</url-upgrade-download>
+                    <url-release-notes>http://dev.lutece.paris.fr/jira/browse/LUTECE?report=com.atlassian.jira.plugin.system.project:changelog-panel</url-release-notes>
+                </upgrade>
+            </upgrades>
+        </plugin>
+        <plugin>
+            <name>codewizard</name>
+            <description>Générateur de code</description>
+            <version>2.0.11</version>
+            <author>Mairie de Paris</author>
+            <url-homepage>http://fr.lutece.paris.fr/fr/jsp/site/Portal.jsp?document_id=505&amp;portlet_id=140</url-homepage>
+            <url-download>http://localhost:8080/lutece/plugins/updater/digglike-2.0.3.zip</url-download>
+            <upgrades>
+                <upgrade>
+                    <version-from>2.0.10</version-from>
+                    <critical>0</critical>
+                    <url-upgrade-download>http://localhost:8080/lutece/plugins/updater/digglike-upgrade-2.0.2-2.0.3.zip</url-upgrade-download>
+                    <url-release-notes>http://dev.lutece.paris.fr/jira/browse/LUTECE?report=com.atlassian.jira.plugin.system.project:changelog-panel</url-release-notes>
+                </upgrade>
+            </upgrades>
+        </plugin>
+        <plugin>
+            <name>contact</name>
+            <description>Formulaire de contact</description>
+            <version>2.0.12</version>
+            <author>Mairie de Paris</author>
+            <url-homepage>http://fr.lutece.paris.fr/fr/jsp/site/Portal.jsp?document_id=505&amp;portlet_id=140</url-homepage>
+            <url-download>http://localhost:8080/lutece/plugins/updater/digglike-2.0.3.zip</url-download>
+            <upgrades>
+                <upgrade>
+                    <version-from></version-from>
+                    <critical>2.0.11</critical>
+                    <url-upgrade-download>http://localhost:8080/lutece/plugins/updater/digglike-upgrade-2.0.2-2.0.3.zip</url-upgrade-download>
+                    <url-release-notes>http://dev.lutece.paris.fr/jira/browse/LUTECE?report=com.atlassian.jira.plugin.system.project:changelog-panel</url-release-notes>
+                </upgrade>
+            </upgrades>
+        </plugin>
+        <plugin>
+            <name>newplugin</name>
+            <description>Vote et suggestion</description>
+            <version>2.0.11</version>
+            <author>Mairie de Paris</author>
+            <url-homepage>http://fr.lutece.paris.fr/fr/jsp/site/Portal.jsp?document_id=505&amp;portlet_id=140</url-homepage>
+            <url-download>http://localhost:8080/lutece/plugins/updater/digglike-2.0.3.zip</url-download>
+            <upgrades>
+                <upgrade>
+                    <version-from>2.0.10</version-from>
+                    <critical>0</critical>
+                    <url-upgrade-download>http://localhost:8080/lutece/plugins/updater/digglike-upgrade-2.0.2-2.0.3.zip</url-upgrade-download>
+                    <url-release-notes>http://dev.lutece.paris.fr/jira/browse/LUTECE?report=com.atlassian.jira.plugin.system.project:changelog-panel</url-release-notes>
+                </upgrade>
+            </upgrades>
+        </plugin>
+    </plugins>
+</catalog>

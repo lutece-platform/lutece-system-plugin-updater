@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<catalogs>
+    <catalog>
+        <name>General plugins list</name>
+        <url>http://localhost:8080/lutece/catalog.xml</url>
+    </catalog>
+    <catalog>
+        <name>French plugins</name>
+        <url>http://localhost:8080/lutece/catalog-fr.xml</url>
+    </catalog>
+</catalogs>

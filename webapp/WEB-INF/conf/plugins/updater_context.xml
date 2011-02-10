@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="updater.startupService" class="fr.paris.lutece.plugins.updater.service.UpdaterStartUpService" />
+    <bean id="updater.shutdownService" class="fr.paris.lutece.plugins.updater.service.UpdaterShutdownService" />
+
+    <bean id="updater.updateService" class="fr.paris.lutece.plugins.updater.service.UpdateService" />
+    <bean id="updater.catalogService" class="fr.paris.lutece.plugins.updater.service.catalog.CatalogService" />
+
+</beans>

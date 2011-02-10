@@ -1,0 +1,48 @@
+<div id="left">
+    
+<div class="content-box">
+    <ul>
+        <li>
+            <img src="images/admin/skin/plugins/updater/actions/updates.png" />
+            <a href="jsp/admin/plugins/updater/ManageUpdates.jsp">#i18n{updater.pageTitle.manageUpdates}</a>
+        </li>
+        <li>
+            <img src="images/admin/skin/plugins/updater/actions/search.png" />
+            <a href="jsp/admin/plugins/updater/ManageNew.jsp">#i18n{updater.pageTitle.manageNew}</a>
+        </li>
+        <li>
+            
+            <img src="images/admin/skin/plugins/updater/actions/installed.png" />
+            <strong>#i18n{updater.pageTitle.manageInstalled}</strong>
+        </li>
+    </ul>
+</div>
+</div>
+
+<div id="right">
+<div class="content-box">
+    <h2>#i18n{updater.pageTitle.manageInstalled}</h2>
+    <table>
+        <tr>
+            <th>#i18n{updater.manage_installed.labelPluginName}</th>
+            <th>#i18n{updater.manage_installed.labelCurrentVersion}</th>
+            <th>#i18n{updater.manage_installed.labelActions}</th>
+        </tr>
+        <#list plugins_list as plugin>
+        <tr>
+            <td>
+                ${plugin.name}
+            </td>
+            <td>
+                ${plugin.version}
+            </td>
+            <td>
+                 <a href="jsp/admin/plugins/updater/RemovePlugin.jsp?plugin_name=${plugin.name}" title="#i18n{updater.manage_installed.buttonRemovePlugin}">
+                     <img src="images/admin/skin/actions/delete.png" alt="#i18n{updater.manage_installed.buttonRemovePlugin}" align="middle" />
+                 </a>
+            </td>
+        </tr>
+        </#list>
+    </table>
+</div>
+</div>

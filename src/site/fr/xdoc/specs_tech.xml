@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Spécifications techniques</title>
+    </properties>
+    <body>
+        <section name="Spécifications techniques">
+            <subsection name="Répertoires de travail du plugin">
+                <p>
+                    Les données gérées par le plugin sont localisées dans la webapp dans le répertoire
+                    <code>WEB-INF/plugins/updater</code>.
+                    Elles sont réparties dans 3 répertoires :
+                </p> 
+                <p>
+                    <ul>
+                        <li>
+                            <strong>backup</strong> contient la dernière sauvegarde des plugins 
+                            selon une arborescence structurée de type : <code>backup/<i>plugin/webapp</i></code>
+                        </li>
+                        <li>
+                            <strong>downloaded</strong> contient les packages d'installation téléchargés 
+                            selon une arborescence structurée de type : <code>backup/<i>plugin/version/[webapp | sql]</i></code>. <br />
+                            </li>
+                        <li><strong>deploy</strong> contient les fichiers à installer lors du 
+                        prochain redémarrage selon une arborescence structurée de type : <code>deploy/<i>plugin/[webapp | sql]</i></code></li>
+                    </ul>
+                </p>
+                <p>
+                    Les sous-répertoires <strong>webapp</strong> contiennent les fichiers tels qu'ils doivent être déployés dans
+                    la webapp selon la même arborescence. <br />
+                    Les sous-répertoires <strong>sql</strong> contiennent les fichiers scripts SQL à exécuter.
+                    Ils sont exécutés à l'installation par ordre alphabétique.
+                </p>
+                <p>
+<code>                
+<pre>
+    webapp-root
+         |
+         ----WEB-INF
+                |
+                ----plugins
+                       |
+                       ---- updater
+                               |
+                               |---- backup
+                               |        |
+                               |        |---- plugin1
+                               |        |        |
+                               |        |        ---- webapp
+                               |        |                |
+                               |        |                ---- ...
+                               |        |---- plugin2
+                               |        ...
+                               |
+                               |
+                               |---- downloaded
+                               |        |
+                               |        |---- plugin1
+                               |        |        |
+                               |        |        |---- version1
+                               |        |        |        |
+                               |        |        |        |---- webapp
+                               |        |        |        |      |
+                               |        |        |        |      ---- ...
+                               |        |        |        |
+                               |        |        |         ---- sql
+                               
+                               |        |        |---- version2
+                               |        |        |        |
+                               |        |        |        ---- webapp
+                               |        |        |        |       |
+                               |        |        |        |       ---- ...
+                               |        |        |        |
+                               |        |        |         ---- sql
+                               |        |        |
+                               |        |                               
+                               |        |---- plugin2
+                               |        ...
+                               |
+                               |
+                               |---- deploy
+                               |        |
+                               |        |---- plugin1
+                               |        |        |
+                               |        |        ---- webapp
+                               |        |        |        |
+                               |        |        |        ---- ...
+                               |        |        |
+                               |        |        ---- sql
+                               |        |
+                               |        |---- plugin2
+                               |        ...
+                               |
+                               |
+</pre>  
+</code>            
+                </p>
+                    
+            </subsection>
+            <subsection name="Format des fichiers catalogues">
+                <p>Le format est illustré par l'exemple ci-dessous :</p>
+                <p>
+<code>                
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+
+&lt;catalog&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;name&gt;digglike&lt;/name&gt;
+            &lt;description&gt;Vote et suggestion&lt;/description&gt;
+            &lt;version&gt;2.0.3&lt;/version&gt;
+            &lt;author&gt;Mairie de Paris&lt;/author&gt;
+            &lt;url-homepage&gt;http://fr.lutece.paris.fr/fr/jsp/site/Portal.jsp?document_id=505&amp;portlet_id=140&lt;/url-homepage&gt;
+            &lt;url-download&gt;http://localhost:8080/lutece/plugins/updater/digglike-upd-2.0.3.zip&lt;/url-download&gt;
+            &lt;upgrades&gt;
+                &lt;upgrade&gt;
+                    &lt;version-from&gt;2.0.2&lt;/version-from&gt;
+                    &lt;critical&gt;0&lt;/critical&gt;
+                    &lt;url-upgrade-download&gt;http://localhost:8080/lutece/plugins/updater/digglike-upd-2.0.2-2.0.3.zip&lt;/url-upgrade-download&gt;
+                    &lt;url-release-notes&gt;http://dev.lutece.paris.fr/jira/browse/LUTECE?report=com.atlassian.jira.plugin.system.project:changelog-panel&lt;/url-release-notes&gt;
+                &lt;/upgrade&gt;
+            &lt;/upgrades&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;name&gt;contact&lt;/name&gt;
+            &lt;description&gt;Formulaire de contact&lt;/description&gt;
+            &lt;version&gt;2.0.12&lt;/version&gt;
+            &lt;author&gt;Mairie de Paris&lt;/author&gt;
+            &lt;url-homepage&gt;http://fr.lutece.paris.fr/fr/jsp/site/Portal.jsp?document_id=505&amp;portlet_id=140&lt;/url-homepage&gt;
+            &lt;url-download&gt;http://localhost:8080/lutece/plugins/updater/contact-upd-2.0.12.zip&lt;/url-download&gt;
+            &lt;upgrades&gt;
+                &lt;upgrade&gt;
+                    &lt;version-from&gt;&lt;/version-from&gt;
+                    &lt;critical&gt;2.0.11&lt;/critical&gt;
+                    &lt;url-upgrade-download&gt;http://localhost:8080/lutece/plugins/updater/contact-upd-2.0.11-2.0.12.zip&lt;/url-upgrade-download&gt;
+                    &lt;url-release-notes&gt;http://dev.lutece.paris.fr/jira/browse/LUTECE?report=com.atlassian.jira.plugin.system.project:changelog-panel&lt;/url-release-notes&gt;
+                &lt;/upgrade&gt;
+            &lt;/upgrades&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/catalog&gt;
+
+</pre>
+</code>            
+</p>
+            </subsection>
+            <subsection name="Structure des packages">
+                <p>
+                    Un package d'installation ou de mise à jour est une archive (Zip) 
+                    contenant un répertoire <strong>webapp</strong> et éventuellement 
+                    un répertoire <strong>sql</strong>
+                    si des manipulations SQL sont nécessaires pour l'installation ou la mise à jour.
+                </p> 
+            </subsection>
+         </section>
+         <section name="Détail des opérations d'installation">
+            <subsection name="Installation en mode script externe (updater-library)">
+                <p>
+                    Le module updater-library peut être utilisé en mode ligne de commande ou
+                    par un script pour réaliser les opérations d'installation ou de mise à jour.
+                    Il ne nécessite pas le noyau Lutece et fait appel à un minimum de dépendences (log4j, c3p0, ...).
+                    Son mode fonctionnement est le suivant :
+                </p>
+                <p>
+                        Recherche sous le répertoire <strong>deploy</strong> si des plugins sont présents.
+                        Dans l'affirmative, il va regarder si le plugin est déjà installé pour procéder éventuellement
+                        à sa suppression. Celle-ci commence par le backup des fichiers du plugins dans le répertoire <strong>backup</strong>.
+                </p>
+                <p>
+                        <strong>Important : Les données en base du plugin ne sont pas sauvegardées</strong>.
+                </p>
+                <p>
+                    Une fois le backup terminé, la suppression commence. Elle se fait en supprimant les fichiers selon
+                    les patterns correspondant aux normes de nommage des plugins (le respect des normes est donc essentiel pour un nettoyage correct).
+                </p>
+                <p>
+                        <strong>Important : Le serveur de la webapp doit être arrêté pour que les fichiers puissent être
+                        correctement supprimés (notamment les jar).</strong>
+                </p>
+                <p>
+                        <strong>Important : Les données en base du plugin ne sont pas supprimées</strong>.
+                </p>
+                <p>
+                        <strong>Important : Les données fichiers du plugins se trouvant sous WEB-INF/plugins/[plugin]/ ne sont pas supprimées.</strong>
+                </p>
+                <p>
+                    A l'issue de la suppression, le module copie tous les fichiers de la branche <strong>webapp</strong> du plugin
+                    et exécute par ordre alphabétique tous les scripts de la branche <strong>sql</strong>.
+                </p>
+                <p>
+                        <strong>Important : Les données fichiers du plugins se trouvant sous WEB-INF/plugins/[plugin]/ ne sont pas supprimées.</strong>
+                </p>
+                <p>
+                        <strong>Important : Si l'installation s'est bien terminée, les données du répertoire deploy sont effacées.</strong>
+                </p>
+            </subsection>
+            <subsection name="Installation en mode intégré à la webapp">
+                <p>
+                    Ce mode réalise les mêmes opérations que le mode précédent.
+                    Cependant, étant donné que la suppression des fichiers nécessite l'arrêt du serveur, il requiert de
+                    configurer, dans le fichier <code>core_context.xml</code>, les services UpdaterStartupService et UpdaterShutdownService.
+                    Ces deux services réaliseront respectivement backup/suppression à l'arrêt du serveur et installation au démarrage.
+                </p>
+            </subsection>
+        </section>
+    </body>
+</document>

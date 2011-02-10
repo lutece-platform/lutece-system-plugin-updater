@@ -1,0 +1,83 @@
+<div id="left">
+    
+<div class="content-box">
+    <ul>
+        <li>
+            <img src="images/admin/skin/plugins/updater/actions/updates.png" />
+            <a href="jsp/admin/plugins/updater/ManageUpdates.jsp">#i18n{updater.pageTitle.manageUpdates}</a>
+        </li>
+        <li>
+            
+            <img src="images/admin/skin/plugins/updater/actions/search.png" />
+            <strong>#i18n{updater.pageTitle.manageNew}</strong>
+        </li>
+        <li>
+            <img src="images/admin/skin/plugins/updater/actions/installed.png" />
+            <a href="jsp/admin/plugins/updater/ManageInstalled.jsp">#i18n{updater.pageTitle.manageInstalled}</a>
+        </li>
+    </ul>
+</div>
+</div>
+
+<div id="right">
+<div class="content-box">
+    <h2>#i18n{updater.pageTitle.manageNew}</h2>
+    <table>
+        <tr>
+            <th>#i18n{updater.manage_new.labelPluginName}</th>
+            <th>#i18n{updater.manage_new.labelVersion}</th>
+            <th>#i18n{updater.manage_new.labelAuthor}</th>
+            <th>#i18n{updater.manage_new.labelDescription}</th>
+            <th>#i18n{updater.manage_new.labelInstructions}</th>
+            <th>#i18n{updater.manage_new.labelActions}</th>
+        </tr>
+        <#list plugins_list as newInfo>
+        <tr>
+            <td>
+                ${newInfo.pluginName}
+            </td>
+            <td>
+                ${newInfo.version}
+            </td>
+            <td>
+                ${newInfo.author}
+            </td>
+            <td>
+                ${newInfo.description}
+            </td>
+            <td>
+                <#if newInfo.downloaded>
+                    <#if newInfo.installInProgress >
+                        #i18n{updater.manage_new.instruction.installInProgress}
+                    <#else>
+                        #i18n{updater.manage_new.instruction.downloaded}
+                    </#if>
+                <#else>
+                    #i18n{updater.manage_new.instruction.newPluginAvailable}
+                </#if>
+            </td>
+            <td>
+                <a href="${newInfo.homepageUrl}" title="#i18n{updater.manage_new.action.homepage}">
+                     <img src="images/admin/skin/plugins/updater/actions/info.png" alt="#i18n{updater.manage_new.action.homepage}" align="middle" />
+                </a>
+                <#if newInfo.downloaded>
+                    <#if newInfo.installInProgress >
+                        <a href="jsp/admin/plugins/updater/CancelInstall.jsp?plugin_name=${newInfo.pluginName}" title="#i18n{updater.manage_new.action.cancel}">
+                            <img src="images/admin/skin/actions/disable.png" alt="#i18n{updater.manage_new.action.cancel}" align="middle" />
+                        </a>
+                    <#else>
+                        <a href="jsp/admin/plugins/updater/DeployPlugin.jsp?plugin_name=${newInfo.pluginName}&amp;version=${newInfo.version}" title="#i18n{updater.manage_new.action.install}">
+                            <img src="images/admin/skin/plugins/updater/actions/deploy.png" alt="#i18n{updater.manage_new.action.install}" align="middle"/>
+                        </a>
+                    </#if>
+                <#else>
+                    <a href="jsp/admin/plugins/updater/DoDownload.jsp?plugin_name=${newInfo.pluginName}&amp;version=${newInfo.version}" title="#i18n{updater.manage_new.action.download}">
+                         <img src="images/admin/skin/plugins/updater/actions/download.png" alt="#i18n{updater.manage_new.action.download}" align="middle"/>
+                    </a>
+                </#if>
+            </td>
+        </tr>
+        </#list>
+    </table>
+</div>
+</div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Introduction</title>
+    </properties>
+    <body>
+        <section name="Plugin updater">
+            <subsection name="Introduction">
+                <p>
+                    This plugin provides download and installation of new plugins 
+                    or upgrades of existing once.
+                </p>
+            </subsection>
+        </section>
+    </body>
+</document>

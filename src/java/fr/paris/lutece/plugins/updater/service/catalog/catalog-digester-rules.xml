@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE digester-rules PUBLIC
+"-//Jakarta Apache //DTD digester-rules XML V1.0//EN"
+"digester-rules.dtd">
+<digester-rules>
+    <pattern value="catalog">
+        <pattern value="plugins/plugin">
+            <object-create-rule classname="fr.paris.lutece.plugins.updater.service.catalog.CatalogInfos" />
+            <set-properties-rule />
+            <bean-property-setter-rule pattern="name" propertyname="pluginName" />
+            <bean-property-setter-rule pattern="description" propertyname="description" />
+            <bean-property-setter-rule pattern="version" propertyname="version" />
+            <bean-property-setter-rule pattern="author" propertyname="author" />
+            <bean-property-setter-rule pattern="url-download" propertyname="downloadUrl" />
+            <bean-property-setter-rule pattern="url-homepage" propertyname="homepageUrl" />
+            <bean-property-setter-rule pattern="min-core-version" propertyname="coreVersionMin" />
+            <bean-property-setter-rule pattern="max-core-version" propertyname="coreVersionMax" />
+
+            <pattern value="upgrades/upgrade">
+                <object-create-rule classname="fr.paris.lutece.plugins.updater.service.catalog.UpgradeInfos" />
+                <set-properties-rule />
+                <bean-property-setter-rule pattern="version-from" propertyname="versionFrom" />
+                <bean-property-setter-rule pattern="url-upgrade-download" propertyname="downloadUrl" />
+                <bean-property-setter-rule pattern="url-release-notres" propertyname="releaseNotesUrl" />
+                <bean-property-setter-rule pattern="critical" propertyname="criticalUpdate" />
+                <set-next-rule methodname="addUpgrade" />
+            </pattern>
+            <set-next-rule methodname="addEntry" />
+        </pattern>
+    </pattern>
+</digester-rules>
+

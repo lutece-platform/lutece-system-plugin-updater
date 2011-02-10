@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Introduction</title>
+    </properties>
+    <body>
+        <section name="Descriptif du module updater">
+            <subsection name="Introduction">
+                <p>Ce plugin permet de télécharger et d'installer des mises à jour ou des nouveaux plugins.</p> 
+            </subsection>
+            <subsection name="Principe de fonctionnement">
+                <p>
+                    Voici les différentes étapes d'une mises à jour :
+                </p>
+                <p> 
+                    <ul>
+                        <li>
+                            Recherche des mises à jour sur le ou les référentiels configurés.
+                            Chaque référentiel fournit un catalogue qui indique le numéro de version 
+                            et l'URL de téléchargement du package des plugins qu'il propose.
+                        </li>
+                        <li>
+                            Lorsque l'utilisateur choisit une mise à jour par le biais de l'interface, 
+                            le plugin procède dans un premier temps au téléchargement du package.
+                        </li>
+                        <li>
+                            Une fois le package téléchargé, une deuxième action permet l'installation.
+                            La version courante est sauvegardée, et les fichiers de la nouvelle sont copiés dans 
+                            une arborescence qui servira à l'installation définitive.
+                            Tous les fichiers du la version courante sont marqués pour être détruis à l'arrêt de la JVM
+                            (serveur Web).
+                        </li>
+                            A l'arrêt de la JVM (attention l'arrêt ou le redémarrage de la webapp ne suffit pas) les fichiers
+                            de la version courante sont supprimés (notamment les jars qui sont verrouillés par le serveur
+                            pendant l'exécution de la Webapp).
+                        <li>
+                            Au redémarrage du serveur, le plugin déploie les fichiers en attente, et 
+                            exécute les scripts SQL de création ou d'initialisation
+                        </li>
+                    </ul>
+                </p>	
+            </subsection>
+        </section>
+    </body>
+</document>

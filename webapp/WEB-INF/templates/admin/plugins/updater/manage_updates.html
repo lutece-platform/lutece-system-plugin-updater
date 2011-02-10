@@ -1,0 +1,83 @@
+<div id="left">
+    
+<div class="content-box">
+    <ul>
+        <li>
+            <img src="images/admin/skin/plugins/updater/actions/updates.png" />
+            <strong>#i18n{updater.pageTitle.manageUpdates}</strong>
+        </li>
+        <li>
+            <img src="images/admin/skin/plugins/updater/actions/search.png" />
+            <a href="jsp/admin/plugins/updater/ManageNew.jsp">#i18n{updater.pageTitle.manageNew}</a>
+        </li>
+        <li>
+            <img src="images/admin/skin/plugins/updater/actions/installed.png" />
+            <a href="jsp/admin/plugins/updater/ManageInstalled.jsp">#i18n{updater.pageTitle.manageInstalled}</a>
+        </li>
+    </ul>
+</div>
+</div>
+
+<div id="right">
+<div class="content-box">
+    <h2>#i18n{updater.pageTitle.manageUpdates}</h2>
+    <table>
+        <tr>
+            <th>&nbsp;</th>
+            <th>#i18n{updater.manage_updates.labelPluginName}</th>
+            <th>#i18n{updater.manage_updates.labelCurrentVersion}</th>
+            <th>#i18n{updater.manage_updates.labelUpdateVersion}</th>
+            <th>#i18n{updater.manage_updates.labelInstructions}</th>
+            <th>#i18n{updater.manage_updates.labelActions}</th>
+        </tr>
+        <#list plugins_list as updateInfo>
+        <tr>
+            <td>
+                <#if updateInfo.criticalUpdate >
+                    <img src="images/admin/skin/plugins/updater/upgrade_critical.png" />
+                <#else>
+                    <img src="images/admin/skin/plugins/updater/upgrade_regular.png" />
+                </#if>
+            </td>
+            <td>
+                ${updateInfo.pluginName}
+            </td>
+            <td>
+                ${updateInfo.currentVersion}
+            </td>
+            <td>
+                ${updateInfo.targetVersion}
+            </td>
+            <td>
+                <#if updateInfo.downloaded>
+                    <#if updateInfo.installInProgress >
+                        #i18n{updater.manage_updates.instruction.installInProgress}
+                    <#else>
+                        #i18n{updater.manage_updates.instruction.downloaded} 
+                    </#if>
+                <#else>
+                    #i18n{updater.manage_updates.instruction.updateAvailable}
+                </#if>
+            </td>
+            <td>
+                <#if updateInfo.downloaded>
+                    <#if updateInfo.installInProgress >
+                        <a href="jsp/admin/plugins/updater/CancelInstall.jsp?plugin_name=${updateInfo.pluginName}" title="#i18n{updater.manage_updates.action.cancel}">
+                            <img src="images/admin/skin/actions/disable.png" alt="#i18n{updater.manage_updates.action.cancel}" align="middle" />
+                        </a>
+                    <#else>
+                        <a href="jsp/admin/plugins/updater/DeployPlugin.jsp?plugin_name=${updateInfo.pluginName}&amp;version=${updateInfo.targetVersion}" title="#i18n{updater.manage_updates.action.install}">
+                            <img src="images/admin/skin/plugins/updater/actions/deploy.png" alt="#i18n{updater.manage_updates.action.install}" align="middle"/>
+                        </a>
+                    </#if>
+                <#else>
+                    <a href="jsp/admin/plugins/updater/DoDownloadUpgrade.jsp?plugin_name=${updateInfo.pluginName}&amp;version=${updateInfo.targetVersion}&amp;version_from=${updateInfo.currentVersion}" title="#i18n{updater.manage_updates.action.download}">
+                         <img src="images/admin/skin/plugins/updater/actions/download.png" alt="#i18n{updater.manage_updates.action.download}" align="middle"/>
+                    </a>
+                </#if>
+            </td>
+        </tr>
+        </#list>
+    </table>
+</div>
+</div>

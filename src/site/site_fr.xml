@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Lutece">
+    
+    <version />
+    
+    <body>
+        <links>
+            <item name="EN" href="../index.html" />
+        </links>
+        
+        <menu name="Plugin updater">
+            <item name="Introduction" href="index.html"/>
+            <item name="Spécifications techniques" href="specs_tech.html"/>
+        </menu>
+        
+
+        <menu name="Téléchargements" inherit="bottom" >
+			     <item name="Versions stables" href="../../../stable_builds/plugins/plugin-updater/"/>
+			     <item name="Nightly builds" href="../../../nightly_builds/plugins/plugin-updater/" />
+		</menu>
+
+		<menu ref="reports" />
+    </body>
+</project>

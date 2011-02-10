@@ -1,0 +1,2 @@
+REM versions of jars should be eventualy updated
+java -classpath ".;../lib/library-updater-2.2.0-SNAPSHOT.jar;../lib/commons-io-1.3.1.jar;../lib/log4j-1.2.14.jar" fr.paris.lutece.plugins.updater.ui.Updater %1
