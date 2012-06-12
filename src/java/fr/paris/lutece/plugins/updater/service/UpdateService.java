@@ -70,7 +70,7 @@ import java.util.zip.ZipFile;
  */
 public class UpdateService implements IUpdateService
 {
-    private static final String PATH_DOWNLOADED = "/WEB-INF/plugins/updater/downloaded/";
+    private static final String PATH_DOWNLOADED = "/plugins/updater/downloaded/";
     private static final String FOLDER_WEBAPP = "/webapp";
     private static final String FOLDER_SQL = "/sql";
     private static final String PLUGIN_NAME = "updater";

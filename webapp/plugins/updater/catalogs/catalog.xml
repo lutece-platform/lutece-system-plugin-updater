@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<catalog>
+    <plugins>
+        <plugin>
+            <name>digglike</name>
+            <description>Votes and suggestions</description>
+            <version>2.0.3</version>
+            <min-core-version>2.2.1</min-core-version>
+            <author>City of Paris</author>
+            <url-homepage>http://fr.lutece.paris.fr/fr/jsp/site/Portal.jsp?document_id=505&amp;portlet_id=140</url-homepage>
+            <url-download>http://localhost:8080/lutece/plugins/updater/plugin-digglike/plugin-digglike-upd-release-2.0.3.zip</url-download>
+            <upgrades>
+                <upgrade>
+                    <version-from>2.0.2</version-from>
+                    <critical>1</critical>
+                    <url-upgrade-download>http://localhost:8080/lutece/plugins/updater/plugin-digglike/plugin-digglike-upd-upgrade-2.0.3.zip</url-upgrade-download>
+                    <url-release-notes>http://dev.lutece.paris.fr/jira/browse/LUTECE?report=com.atlassian.jira.plugin.system.project:changelog-panel</url-release-notes>
+                </upgrade>
+            </upgrades>
+        </plugin>
+    </plugins>
+</catalog>

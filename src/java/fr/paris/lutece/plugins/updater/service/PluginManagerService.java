@@ -62,8 +62,8 @@ public final class PluginManagerService
     private static final int FILE = 1;
     private static final int DIRECTORY_TREE = 2;
     private static final int FILE_PREFIX = 3;
-    private static final String PATH_BACKUP = "/WEB-INF/plugins/updater/backup/";
-    private static final String PATH_DEPLOY = "/WEB-INF/plugins/updater/deploy/";
+    private static final String PATH_BACKUP = "/plugins/updater/backup/";
+    private static final String PATH_DEPLOY = "/plugins/updater/deploy/";
     private static final String FOLDER_WEBAPP = "/webapp";
     private static final String FOLDER_SQL = "/sql";
     private static PluginManagerService _singleton = new PluginManagerService(  );

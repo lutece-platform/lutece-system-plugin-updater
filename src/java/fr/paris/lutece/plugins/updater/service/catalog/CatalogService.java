@@ -63,7 +63,7 @@ public class CatalogService implements ICatalogService
 {
     private static final String FILE_CATALOGS_LIST_RULES = "/fr/paris/lutece/plugins/updater/service/catalog/catalogs-list-digester-rules.xml";
     private static final String FILE_CATALOG_RULES = "/fr/paris/lutece/plugins/updater/service/catalog/catalog-digester-rules.xml";
-    private static final String FILE_CATALOGS_LIST = "/WEB-INF/plugins/updater/catalogs.xml";
+    private static final String FILE_CATALOGS_LIST = "/plugins/updater/catalogs.xml";
     private static final String EXCEPTION_MESSAGE = "Error loading catalog : ";
     private List<CatalogInfos> _listInfos = new ArrayList<CatalogInfos>(  );
     private List<Catalog> _listCatalogs = new ArrayList<Catalog>(  );

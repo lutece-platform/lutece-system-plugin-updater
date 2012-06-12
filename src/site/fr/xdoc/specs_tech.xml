@@ -8,7 +8,7 @@
             <subsection name="Répertoires de travail du plugin">
                 <p>
                     Les données gérées par le plugin sont localisées dans la webapp dans le répertoire
-                    <code>WEB-INF/plugins/updater</code>.
+                    <code>plugins/updater</code>.
                     Elles sont réparties dans 3 répertoires :
                 </p> 
                 <p>
@@ -182,14 +182,14 @@
                         <strong>Important : Les données en base du plugin ne sont pas supprimées</strong>.
                 </p>
                 <p>
-                        <strong>Important : Les données fichiers du plugins se trouvant sous WEB-INF/plugins/[plugin]/ ne sont pas supprimées.</strong>
+                        <strong>Important : Les données fichiers du plugins se trouvant sous plugins/[plugin]/ ne sont pas supprimées.</strong>
                 </p>
                 <p>
                     A l'issue de la suppression, le module copie tous les fichiers de la branche <strong>webapp</strong> du plugin
                     et exécute par ordre alphabétique tous les scripts de la branche <strong>sql</strong>.
                 </p>
                 <p>
-                        <strong>Important : Les données fichiers du plugins se trouvant sous WEB-INF/plugins/[plugin]/ ne sont pas supprimées.</strong>
+                        <strong>Important : Les données fichiers du plugins se trouvant sous plugins/[plugin]/ ne sont pas supprimées.</strong>
                 </p>
                 <p>
                         <strong>Important : Si l'installation s'est bien terminée, les données du répertoire deploy sont effacées.</strong>
