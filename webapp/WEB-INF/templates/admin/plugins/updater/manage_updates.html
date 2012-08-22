@@ -1,27 +1,20 @@
-<div id="left">
-    
-<div class="content-box">
-    <ul>
-        <li>
-            <img src="images/admin/skin/plugins/updater/actions/updates.png" />
-            <strong>#i18n{updater.pageTitle.manageUpdates}</strong>
+<div class="row">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="jsp/admin/plugins/updater/ManageUpdates.jsp">#i18n{updater.pageTitle.manageUpdates}</a>
         </li>
         <li>
-            <img src="images/admin/skin/plugins/updater/actions/search.png" />
             <a href="jsp/admin/plugins/updater/ManageNew.jsp">#i18n{updater.pageTitle.manageNew}</a>
         </li>
         <li>
-            <img src="images/admin/skin/plugins/updater/actions/installed.png" />
             <a href="jsp/admin/plugins/updater/ManageInstalled.jsp">#i18n{updater.pageTitle.manageInstalled}</a>
         </li>
     </ul>
 </div>
-</div>
 
-<div id="right">
-<div class="content-box">
-    <h2>#i18n{updater.pageTitle.manageUpdates}</h2>
-    <table>
+<div class="row">
+    <h3>#i18n{updater.pageTitle.manageUpdates}</h3>
+    <table  class="table table-striped table-condensed">
         <tr>
             <th>&nbsp;</th>
             <th>#i18n{updater.manage_updates.labelPluginName}</th>
@@ -62,22 +55,21 @@
             <td>
                 <#if updateInfo.downloaded>
                     <#if updateInfo.installInProgress >
-                        <a href="jsp/admin/plugins/updater/CancelInstall.jsp?plugin_name=${updateInfo.pluginName}" title="#i18n{updater.manage_updates.action.cancel}">
-                            <img src="images/admin/skin/actions/disable.png" alt="#i18n{updater.manage_updates.action.cancel}" align="middle" />
+                        <a class="btn btn-danger btn-mini" href="jsp/admin/plugins/updater/CancelInstall.jsp?plugin_name=${updateInfo.pluginName}" title="#i18n{updater.manage_updates.action.cancel}">
+                            <i class="icon-remove icon-white" ></i>
                         </a>
                     <#else>
-                        <a href="jsp/admin/plugins/updater/DeployPlugin.jsp?plugin_name=${updateInfo.pluginName}&amp;version=${updateInfo.targetVersion}" title="#i18n{updater.manage_updates.action.install}">
-                            <img src="images/admin/skin/plugins/updater/actions/deploy.png" alt="#i18n{updater.manage_updates.action.install}" align="middle"/>
+                        <a class="btn btn-success btn-mini" href="jsp/admin/plugins/updater/DeployPlugin.jsp?plugin_name=${updateInfo.pluginName}&amp;version=${updateInfo.targetVersion}" title="#i18n{updater.manage_updates.action.install}">
+                            <i class="icon-ok icon-white" ></i>
                         </a>
                     </#if>
                 <#else>
-                    <a href="jsp/admin/plugins/updater/DoDownloadUpgrade.jsp?plugin_name=${updateInfo.pluginName}&amp;version=${updateInfo.targetVersion}&amp;version_from=${updateInfo.currentVersion}" title="#i18n{updater.manage_updates.action.download}">
-                         <img src="images/admin/skin/plugins/updater/actions/download.png" alt="#i18n{updater.manage_updates.action.download}" align="middle"/>
+                    <a class="btn btn-primary btn-mini" href="jsp/admin/plugins/updater/DoDownloadUpgrade.jsp?plugin_name=${updateInfo.pluginName}&amp;version=${updateInfo.targetVersion}&amp;version_from=${updateInfo.currentVersion}" title="#i18n{updater.manage_updates.action.download}">
+                            <i class="icon-download-alt icon-white" ></i>
                     </a>
                 </#if>
             </td>
         </tr>
         </#list>
     </table>
-</div>
 </div>

@@ -1,28 +1,20 @@
-<div id="left">
-    
-<div class="content-box">
-    <ul>
+<div class="row">
+    <ul class="nav nav-tabs">
         <li>
-            <img src="images/admin/skin/plugins/updater/actions/updates.png" />
             <a href="jsp/admin/plugins/updater/ManageUpdates.jsp">#i18n{updater.pageTitle.manageUpdates}</a>
         </li>
-        <li>
-            
-            <img src="images/admin/skin/plugins/updater/actions/search.png" />
-            <strong>#i18n{updater.pageTitle.manageNew}</strong>
+        <li class="active">
+            <a href="jsp/admin/plugins/updater/ManageNew.jsp">#i18n{updater.pageTitle.manageNew}</a>
         </li>
         <li>
-            <img src="images/admin/skin/plugins/updater/actions/installed.png" />
             <a href="jsp/admin/plugins/updater/ManageInstalled.jsp">#i18n{updater.pageTitle.manageInstalled}</a>
         </li>
     </ul>
 </div>
-</div>
 
-<div id="right">
-<div class="content-box">
-    <h2>#i18n{updater.pageTitle.manageNew}</h2>
-    <table>
+<div class="row">
+    <h3>#i18n{updater.pageTitle.manageNew}</h3>
+    <table class="table table-striped table-condensed">
         <tr>
             <th>#i18n{updater.manage_new.labelPluginName}</th>
             <th>#i18n{updater.manage_new.labelVersion}</th>
@@ -57,27 +49,26 @@
                 </#if>
             </td>
             <td>
-                <a href="${newInfo.homepageUrl}" title="#i18n{updater.manage_new.action.homepage}">
-                     <img src="images/admin/skin/plugins/updater/actions/info.png" alt="#i18n{updater.manage_new.action.homepage}" align="middle" />
+                <a class="btn btn-primary btn-mini" href="${newInfo.homepageUrl}" title="#i18n{updater.manage_new.action.homepage}" title="#i18n{updater.manage_new.action.homepage}">
+                    <i class="icon-info icon-white"></i>
                 </a>
                 <#if newInfo.downloaded>
                     <#if newInfo.installInProgress >
-                        <a href="jsp/admin/plugins/updater/CancelInstall.jsp?plugin_name=${newInfo.pluginName}" title="#i18n{updater.manage_new.action.cancel}">
-                            <img src="images/admin/skin/actions/disable.png" alt="#i18n{updater.manage_new.action.cancel}" align="middle" />
+                        <a class="btn btn-danger btn-mini" href="jsp/admin/plugins/updater/CancelInstall.jsp?plugin_name=${newInfo.pluginName}" title="#i18n{updater.manage_new.action.cancel}">
+                            <i class="icon-remove icon-white"></i>
                         </a>
                     <#else>
-                        <a href="jsp/admin/plugins/updater/DeployPlugin.jsp?plugin_name=${newInfo.pluginName}&amp;version=${newInfo.version}" title="#i18n{updater.manage_new.action.install}">
-                            <img src="images/admin/skin/plugins/updater/actions/deploy.png" alt="#i18n{updater.manage_new.action.install}" align="middle"/>
+                        <a class="btn btn-success btn-mini" href="jsp/admin/plugins/updater/DeployPlugin.jsp?plugin_name=${newInfo.pluginName}&amp;version=${newInfo.version}" title="#i18n{updater.manage_new.action.install}">
+                            <i class="icon-ok icon-white"></i>
                         </a>
                     </#if>
                 <#else>
-                    <a href="jsp/admin/plugins/updater/DoDownload.jsp?plugin_name=${newInfo.pluginName}&amp;version=${newInfo.version}" title="#i18n{updater.manage_new.action.download}">
-                         <img src="images/admin/skin/plugins/updater/actions/download.png" alt="#i18n{updater.manage_new.action.download}" align="middle"/>
+                    <a class="btn btn-primary btn-mini" href="jsp/admin/plugins/updater/DoDownload.jsp?plugin_name=${newInfo.pluginName}&amp;version=${newInfo.version}" title="#i18n{updater.manage_new.action.download}">
+                        <i class="icon-download-alt icon-white"></i>
                     </a>
                 </#if>
             </td>
         </tr>
         </#list>
     </table>
-</div>
 </div>
