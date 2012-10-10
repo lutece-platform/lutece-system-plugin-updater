@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row-fluid">
     <ul class="nav nav-tabs">
         <li>
             <a href="jsp/admin/plugins/updater/ManageUpdates.jsp">#i18n{updater.pageTitle.manageUpdates}</a>
@@ -12,7 +12,7 @@
     </ul>
 </div>
 
-<div class="row">
+<div class="row-fluid">
     <h3>#i18n{updater.pageTitle.manageInstalled}</h3>
     <table class="table table-striped table-condensed">
         <tr>
@@ -29,7 +29,7 @@
                 ${plugin.version}
             </td>
             <td>
-                <a class="btn btn-danger btn-mini" href="jsp/admin/plugins/updater/RemovePlugin.jsp?plugin_name=${plugin.name}" title="#i18n{updater.manage_installed.buttonRemovePlugin}">
+                <a class="btn btn-danger btn-small" href="jsp/admin/plugins/updater/RemovePlugin.jsp?plugin_name=${plugin.name}" title="#i18n{updater.manage_installed.buttonRemovePlugin}">
                     <i class="icon-trash icon-white"></i>
                 </a>
             </td>
