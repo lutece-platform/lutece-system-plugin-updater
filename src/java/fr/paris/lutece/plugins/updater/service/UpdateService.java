@@ -83,6 +83,7 @@ public class UpdateService implements IUpdateService
      * @param listPlugins The list of installed plugins
      * @return Update infos for installed plugins
      */
+    @Override
     public List<UpdateInfos> getUpdateInfos( Collection<Plugin> listPlugins )
     {
         ICatalogService catalogService = (ICatalogService) SpringContextService.getPluginBean( PLUGIN_NAME, BEAN_CATALOG_SERVICE );
@@ -140,6 +141,7 @@ public class UpdateService implements IUpdateService
      * @param listPlugins The list of installed plugins
      * @return New plugins infos list
      */
+    @Override
     public List<NewInfos> getNewPluginsInfos( Collection<Plugin> listPlugins )
     {
         ICatalogService catalogService = (ICatalogService) SpringContextService.getPluginBean( PLUGIN_NAME, BEAN_CATALOG_SERVICE );
@@ -170,6 +172,7 @@ public class UpdateService implements IUpdateService
      * @param strPluginName The plugin name
      * @param strVersion The update version
      */
+    @Override
     public void deployPlugin( String strPluginName, String strVersion )
     {
         AppLogService.info( "deploy plugin : " + strPluginName );
@@ -263,6 +266,7 @@ public class UpdateService implements IUpdateService
      * available or critical updates available.
      * @return The status
      */
+    @Override
     public int getStatus(  )
     {
         return _nStatus;
@@ -272,6 +276,7 @@ public class UpdateService implements IUpdateService
      * Check for updates and update the status
      * @param listPlugins The list of installed plugins
      */
+    @Override
     public void checkUpdate( Collection<Plugin> listPlugins )
     {
         _nStatus = STATUS_NO_UPDATE;
@@ -334,6 +339,7 @@ public class UpdateService implements IUpdateService
      * @param  strVersion The version
      * @throws UpdaterDownloadException If an exception occurs during download
      */
+    @Override
     public void downloadPlugin( String strPluginName, String strVersion )
         throws UpdaterDownloadException
     {
@@ -352,6 +358,7 @@ public class UpdateService implements IUpdateService
      * @param  strVersionFrom The version from which to upgrade
      * @throws UpdaterDownloadException If an exception occurs during download
     */
+    @Override
     public void downloadPluginUpgrade( String strPluginName, String strVersion, String strVersionFrom )
         throws UpdaterDownloadException
     {
@@ -502,7 +509,7 @@ public class UpdateService implements IUpdateService
         BufferedInputStream inBufferedStream = new BufferedInputStream( inStream );
         BufferedOutputStream outBufferedStream = new BufferedOutputStream( outStream );
 
-        int nByte = 0;
+        int nByte;
 
         while ( ( nByte = inBufferedStream.read(  ) ) > -1 )
         {

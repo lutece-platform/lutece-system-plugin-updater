@@ -50,6 +50,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -376,10 +377,7 @@ public final class PluginManagerService
 
                 if ( files != null )
                 {
-                    for ( int i = 0; i < files.length; i++ )
-                    {
-                        set.add( files[i] );
-                    }
+                    set.addAll(Arrays.asList(files));
 
                     for ( File file : set )
                     {
