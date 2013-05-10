@@ -1,0 +1,24 @@
+<#macro tabs tab >
+<div>
+    <ul class="nav nav-tabs">
+        <li <#if tab="updates">class="active"</#if>>
+            <a href="jsp/admin/plugins/updater/ManageUpdates.jsp">
+                <i class="icon-refresh"></i>
+                #i18n{updater.pageTitle.manageUpdates}
+            </a>
+        </li>
+        <li <#if tab="new">class="active"</#if>>
+            <a href="jsp/admin/plugins/updater/ManageNew.jsp">
+                <i class="icon-download"></i>
+                #i18n{updater.pageTitle.manageNew}
+            </a>
+        </li>
+        <li <#if tab="installed">class="active"</#if>>
+            <a href="jsp/admin/plugins/updater/ManageInstalled.jsp">
+                <i class="icon-trash"></i>
+                #i18n{updater.pageTitle.manageInstalled}
+            </a>
+        </li>
+    </ul>
+</div>
+</#macro>

@@ -1,19 +1,7 @@
-<div class="row-fluid">
-    <ul class="nav nav-tabs">
-        <li>
-            <a href="jsp/admin/plugins/updater/ManageUpdates.jsp">#i18n{updater.pageTitle.manageUpdates}</a>
-        </li>
-        <li class="active">
-            <a href="jsp/admin/plugins/updater/ManageNew.jsp">#i18n{updater.pageTitle.manageNew}</a>
-        </li>
-        <li>
-            <a href="jsp/admin/plugins/updater/ManageInstalled.jsp">#i18n{updater.pageTitle.manageInstalled}</a>
-        </li>
-    </ul>
-</div>
+<#include "tabs.html" /> 
+<@tabs tab="new" />
 
 <div class="row-fluid">
-    <h3>#i18n{updater.pageTitle.manageNew}</h3>
     <table class="table table-striped table-condensed">
         <tr>
             <th>#i18n{updater.manage_new.labelPluginName}</th>
