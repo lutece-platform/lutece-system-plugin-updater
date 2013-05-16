@@ -12,7 +12,7 @@
    <provider>updater.plugin.provider</provider>
    <provider-url>http://lutece.paris.fr</provider-url>
    <icon-url>images/admin/skin/plugins/updater/updater.png</icon-url>
-   <copyright>Copyright 2001-2012 Mairie de Paris</copyright>
+   <copyright>Copyright 2001-2013 Mairie de Paris</copyright>
    <core-version-dependency>
 		<min-core-version>4.0.0</min-core-version>
 		<max-core-version/>	
@@ -45,8 +45,6 @@
             <dashboard-component-name>UPDATER</dashboard-component-name>
             <dashboard-component-class>fr.paris.lutece.plugins.updater.web.UpdaterDashboardComponent</dashboard-component-class>
             <dashboard-feature-right>UPDATER_MANAGEMENT</dashboard-feature-right>
-            <dashboard-zone>0</dashboard-zone>
-            <dashboard-zone-order>2</dashboard-zone-order>
         </dashboard-component>
     </dashboard-components>
 

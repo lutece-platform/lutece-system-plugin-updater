@@ -60,14 +60,14 @@ public class UpdaterDashboardComponent extends DashboardComponent
     private static final String PARAMETER_PLUGIN_NAME = "plugin_name";
     private static final String PLUGIN_NAME = "updater";
     private static final String BEAN_UPDATE_SERVICE = "updater.updateService";
-    private static final IUpdateService _updateService = (IUpdateService) SpringContextService.getPluginBean( PLUGIN_NAME,
-            BEAN_UPDATE_SERVICE );
+    private static final IUpdateService _updateService = (IUpdateService) SpringContextService.getBean( BEAN_UPDATE_SERVICE );
 
     /**
      * The HTML code of the component
      * @param user The Admin User
      * @return The dashboard component
      */
+    @Override
     public String getDashboardData( AdminUser user, HttpServletRequest request )
     {
         Right right = RightHome.findByPrimaryKey( getRight(  ) );
