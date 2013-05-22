@@ -43,10 +43,13 @@ import fr.paris.lutece.portal.business.right.Right;
 import fr.paris.lutece.portal.business.right.RightHome;
 import fr.paris.lutece.portal.business.user.AdminUser;
 import fr.paris.lutece.portal.service.dashboard.DashboardComponent;
+import fr.paris.lutece.portal.service.plugin.Plugin;
+import fr.paris.lutece.portal.service.plugin.PluginService;
 import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
 import fr.paris.lutece.util.html.HtmlTemplate;
 import fr.paris.lutece.util.url.UrlItem;
+import java.util.Collection;
 
 
 /**
@@ -57,8 +60,9 @@ public class UpdaterDashboardComponent extends DashboardComponent
     private static final String TEMPLATE_DASHBOARD = "/admin/plugins/updater/updater_dashboard.html";
     private static final String MARK_URL = "url";
     private static final String MARK_STATUS = "status";
+    private static final String MARK_REGULAR_UPDATES = "regular_updates";
+    private static final String MARK_CRITICAL_UPDATES = "critical_updates";
     private static final String PARAMETER_PLUGIN_NAME = "plugin_name";
-    private static final String PLUGIN_NAME = "updater";
     private static final String BEAN_UPDATE_SERVICE = "updater.updateService";
     private static final IUpdateService _updateService = (IUpdateService) SpringContextService.getBean( BEAN_UPDATE_SERVICE );
 
@@ -74,11 +78,13 @@ public class UpdaterDashboardComponent extends DashboardComponent
         UrlItem url = new UrlItem( right.getUrl(  ) );
         url.addParameter( PARAMETER_PLUGIN_NAME, right.getPluginName(  ) );
 
-        int nStatus = _updateService.getStatus(  );
+        _updateService.checkUpdate( PluginService.getPluginList());
 
         Map<String, Object> model = new HashMap<String, Object>(  );
         model.put( MARK_URL, url.getUrl(  ) );
-        model.put( MARK_STATUS, nStatus );
+        model.put( MARK_STATUS, _updateService.getStatus(  ) );
+        model.put( MARK_REGULAR_UPDATES, _updateService.getRegularUpdateCount() );
+        model.put( MARK_CRITICAL_UPDATES, _updateService.getCriticalUpdateCount() );
 
         HtmlTemplate t = AppTemplateService.getTemplate( TEMPLATE_DASHBOARD, user.getLocale(  ), model );
 

@@ -89,6 +89,18 @@ public interface IUpdateService
     int getStatus(  );
 
     /**
+     * Returns the number of regular updates available
+     * @return the number of regular updates available
+     */
+    int getRegularUpdateCount();
+    
+    /**
+     * Returns the number of critical updates available
+     * @return the number of critical updates available
+     */
+    int getCriticalUpdateCount();
+
+    /**
      * Check for updates and update the status
      * @param listPlugins The list of installed plugins
      */

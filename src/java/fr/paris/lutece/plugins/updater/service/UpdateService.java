@@ -77,6 +77,8 @@ public class UpdateService implements IUpdateService
     private static final String BEAN_CATALOG_SERVICE = "updater.catalogService";
     private static Version _currentCoreVersion;
     private static int _nStatus;
+    private static int _nRegularUpdateCount;
+    private static int _nCriticalUpdateCount;
 
     /**
      * Gets available update for a list of plugins
@@ -86,7 +88,7 @@ public class UpdateService implements IUpdateService
     @Override
     public List<UpdateInfos> getUpdateInfos( Collection<Plugin> listPlugins )
     {
-        ICatalogService catalogService = (ICatalogService) SpringContextService.getPluginBean( PLUGIN_NAME, BEAN_CATALOG_SERVICE );
+        ICatalogService catalogService = (ICatalogService) SpringContextService.getBean( BEAN_CATALOG_SERVICE );
         List<CatalogInfos> listCatalogInfos = catalogService.getCatalogInfos(  );
         List<UpdateInfos> listUpdatesInfos = new ArrayList<UpdateInfos>(  );
 
@@ -271,6 +273,26 @@ public class UpdateService implements IUpdateService
     {
         return _nStatus;
     }
+    
+    /**
+     * Returns the number of regular updates available
+     * @return the number of regular updates available
+     */
+    @Override
+    public int getRegularUpdateCount()
+    {
+        return _nRegularUpdateCount;
+    }
+    
+    /**
+     * Returns the number of critical updates available
+     * @return the number of critical updates available
+     */
+    @Override
+    public int getCriticalUpdateCount()
+    {
+        return _nCriticalUpdateCount;
+    }
 
     /**
      * Check for updates and update the status
@@ -280,6 +302,8 @@ public class UpdateService implements IUpdateService
     public void checkUpdate( Collection<Plugin> listPlugins )
     {
         _nStatus = STATUS_NO_UPDATE;
+        _nRegularUpdateCount = 0;
+        _nCriticalUpdateCount = 0;
 
         List<UpdateInfos> listUpdatesInfos = getUpdateInfos( listPlugins );
 
@@ -292,8 +316,11 @@ public class UpdateService implements IUpdateService
                 if ( ui.isCriticalUpdate(  ) )
                 {
                     _nStatus = STATUS_CRITICAL_UPDATE;
-
-                    break;
+                    _nCriticalUpdateCount++;
+                }
+                else
+                {
+                    _nRegularUpdateCount++;
                 }
             }
         }

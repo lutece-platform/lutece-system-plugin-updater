@@ -1,20 +1,20 @@
+<div class="well">
     <#if status=0>
-    <div class="alert">
         <i class="icon-info-sign"></i>
         <a href="${url}" >#i18n{updater.dashboard.noUpdate}</a>
-    </div>
     </#if>
 
-    <#if status=1>
-    <div class="alert alert-warning">
-    <img src="images/admin/skin/plugins/updater/upgrade_regular.png" width="24" height="24" align="middle"/>
-    <a href="${url}" >#i18n{updater.dashboard.regularUpdates}</a>
-    </div>
-    </#if>
-
-    <#if status=2>
-    <div class="alert alert-error">
+    <#if critical_updates &gt; 0>
     <img src="images/admin/skin/plugins/updater/upgrade_critical.png" width="24" height="24" align="middle"/>
     <a href="${url}" >#i18n{updater.dashboard.criticalUpdates}</a>
-    </div>
+    <span class="badge badge-important pull-right">${critical_updates}</span>
+    <br/>
     </#if>
+
+    <#if regular_updates &gt; 0>
+    <img src="images/admin/skin/plugins/updater/upgrade_regular.png" width="24" height="24" align="middle"/>
+    <a href="${url}" >#i18n{updater.dashboard.regularUpdates}</a>
+    <span class="badge badge-info pull-right">${regular_updates}</span>
+    </#if>
+    
+</div>
