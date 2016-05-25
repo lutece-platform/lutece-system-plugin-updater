@@ -48,8 +48,8 @@
         <jiraComponentId>10110</jiraComponentId>
     </properties>
     <scm>
-        <connection>scm:svn:http://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/system/plugin-updater</connection>
-        <developerConnection>scm:svn:https://dev.lutece.paris.fr/svn/lutece/portal/trunk/plugins/system/plugin-updater</developerConnection>
-        <url>http://dev.lutece.paris.fr/viewvc/lutece/portal/trunk/plugins/system/plugin-updater</url>
+        <connection>scm:git:https://github.com/lutece-platform/lutece-system-plugin-updater.git</connection>
+        <developerConnection>scm:git:https://github.com/lutece-platform/lutece-system-plugin-updater.git</developerConnection>
+        <url>https://github.com/lutece-platform/lutece-system-plugin-updater.git</url>
     </scm>
 </project>
